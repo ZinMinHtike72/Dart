@@ -1,3 +1,5 @@
+import 'newClass.dart';
+
 void main() {
   // List<String> uniList = ["test1", "test2", "test3"];
   // for (var i = 0; i < uniList.length; i++) {
@@ -22,12 +24,12 @@ void main() {
   //     print(element["name"]);
   //   }
   // }
-  String name = "zin";
-  name == 'zin min'
-      ? print("My Name is $name")
-      : name == 'aung'
-          ? print('My Nam is Aung')
-          : print("other");
+  // String name = "zin";
+  // name == 'zin min'
+  //     ? print("My Name is $name")
+  //     : name == 'aung'
+  //         ? print('My Nam is Aung')
+  //         : print("other");
 
   // Map mp = {
   //   "name": ["zin", "min", "htike"],
@@ -40,4 +42,6 @@ void main() {
   //   print(key);
   //   print(value);
   // });
+  final test = Test(name: "Kyaw Kyaw", age: 10, birthYear: 2000);
+  print(test.getCalAge);
 }

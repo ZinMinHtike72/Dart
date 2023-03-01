@@ -1,12 +1,18 @@
 void main() {
-  void play({required String gameName, String? action, String? year}) {
-    print("$gameName ${year ?? '2023'}");
-    if (action != null && action.contains("lag")) {
-      print("Game is Lag");
+  String select(String type) {
+    switch (type) {
+      case "window":
+        return "You are using Window";
+      case "ubuntu":
+        return "You are using ubuntu";
+      default:
+        return "Nothing!";
     }
   }
 
-  String name = "Zin Min Htike";
+  void Print(String data) {
+    print(data);
+  }
 
-  play(gameName: "Fifa", action: "lag");
+  Print(select("ubuntu"));
 }
