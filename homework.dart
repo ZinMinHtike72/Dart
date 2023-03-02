@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 void main() {
   String? name;
@@ -7,7 +8,10 @@ void main() {
     String? inputData = stdin.readLineSync();
     List newData = inputData!.trim().split("");
     if (newData.length > 0) {
-      name = newData.join();
+      String text = newData.join();
+      if (!text.contains(new RegExp(r'[0-9]'))) {
+        name = text;
+      }
     }
   }
 
@@ -29,7 +33,31 @@ void main() {
   print(accounInfo.name);
   print(AccounInfo.balance);
   print(accounInfo.betAmount);
+
+  winOrLose(accounInfo);
   print(accounInfo.guessNumber);
+  print("final balance is ${AccounInfo.balance}");
+}
+
+void winOrLose(AccounInfo info) {
+  Random random = new Random();
+  int randomNumber = random.nextInt(9) + 1;
+  print("Random Number is $randomNumber ${info.guessNumber + 2}");
+  if (randomNumber == info.guessNumber + 2) {
+    AccounInfo.balance = AccounInfo.balance + info.betAmount;
+    print("It is Same");
+  } else {
+    AccounInfo.balance = AccounInfo.balance - info.betAmount;
+    print("It it not same");
+  }
+
+  print("Type 'Y' to play other game or other words to stop");
+  String? data = stdin.readLineSync();
+  if (data == 'Y') {
+    main();
+  } else {
+    print("Thank for playing");
+  }
 }
 
 int input({int? max, String? bet}) {
